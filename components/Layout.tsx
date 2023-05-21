@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export const siteTitle = 'Serial Port Tools'
+export const siteTitle = 'Sailing Tools'
 
 export default function Layout({
     children
@@ -15,7 +15,7 @@ export default function Layout({
                 <title>{siteTitle}</title>
                 <meta
                     name="description"
-                    content="Tools for serial port debugging"
+                    content="Tools for calculating race results"
                 />
                 <meta
                     property="og:image"
