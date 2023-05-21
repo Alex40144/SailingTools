@@ -1,5 +1,4 @@
 type ResultsDataType = {
-  [key: string]: any;
   id: number;
   Helm: string;
   Crew: string;

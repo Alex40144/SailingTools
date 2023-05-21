@@ -59,7 +59,7 @@ export const PY_List_2023 = [
     { name: "RS FEVA XL", crew: 2, PY: 1248 },
     { name: "RS TERA PRO", crew: 1, PY: 1364 },
     { name: "RS TERA SPORT", crew: 1, PY: 1445 },
-    { name: "RS VAREO", crew: 1, PY: 1093 },
+    { name: "RS letEO", crew: 1, PY: 1093 },
     { name: "RS VISION", crew: 2, PY: 1137 },
     { name: "SCORPION", crew: 2, PY: 1043 },
     { name: "SEAFLY", crew: 2, PY: 1071 },

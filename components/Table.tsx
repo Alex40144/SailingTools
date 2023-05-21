@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEventHandler, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
 import Select from 'react-select';
 import { PY_List_2023 } from './PY';
@@ -6,12 +6,12 @@ import { PY_List_2023 } from './PY';
 
 
 
-const Text = ({ ...props }: any) => {
+const Text = ({ ...props }) => {
     const initialValue = props.getValue()
     const [value, setValue] = React.useState(initialValue)
 
     const onBlur = (e: ChangeEvent<HTMLInputElement>) => {
-        var original = props.row.original
+        const original = props.row.original
         original[props.column.id] = e.target.value
         props.updateEntrant(original)
     }
@@ -37,7 +37,7 @@ const Number = ({ ...props }: any) => {
     const [value, setValue] = React.useState(initialValue)
 
     const onBlur = (e: ChangeEvent<HTMLInputElement>) => {
-        var original = props.row.original
+        let original = props.row.original
         original[props.column.id] = parseInt(e.target.value)
         props.updateEntrant(original)
     }
@@ -63,7 +63,7 @@ const Time = ({ ...props }: any) => {
     const [value, setValue] = React.useState(initialValue)
 
     const onBlur = (e: ChangeEvent<HTMLInputElement>) => {
-        var original = props.row.original
+        let original = props.row.original
         original[props.column.id] = e.target.value
         props.updateEntrant(original)
     }
@@ -89,7 +89,7 @@ const Class = ({ ...props }: any) => {
     const initialValue = props.getValue()
     const [value, setValue] = React.useState(initialValue)
 
-    var options: any = []
+    let options: any = []
 
     PY_List_2023.forEach(boat => {
         options.push({ value: boat, label: boat.name })
@@ -97,7 +97,7 @@ const Class = ({ ...props }: any) => {
 
 
     const onBlur = (newValue: any) => {
-        var original = props.row.original
+        let original = props.row.original
         original[props.column.id] = newValue
         props.updateEntrant(original)
     }
@@ -138,7 +138,7 @@ const Remove = ({ ...props }: any) => {
 const columnHelper = createColumnHelper<ResultsDataType>()
 
 const RaceResultsTable = (props: any) => {
-    var [data, setData] = useState(props.data)
+    let [data, setData] = useState(props.data)
     const removeEntrant = (id: any) => {
         props.removeEntrant(id)
     }
@@ -147,7 +147,7 @@ const RaceResultsTable = (props: any) => {
         props.updateEntrant(Entrant)
     }
 
-    var table = useReactTable({
+    let table = useReactTable({
         data,
         columns: [
             columnHelper.accessor('Helm', {
@@ -163,7 +163,7 @@ const RaceResultsTable = (props: any) => {
                 size: 300,
                 cell: props => <Class {...props} updateEntrant={updateEntrant} />
             }),
-            columnHelper.accessor('Sail Number', {
+            columnHelper.accessor('BoatNumber', {
                 id: "Sail Number",
                 cell: props => <Number {...props} updateEntrant={updateEntrant} />
             }),
@@ -179,7 +179,7 @@ const RaceResultsTable = (props: any) => {
                 header: "Position",
                 cell: props => <Number {...props} updateEntrant={updateEntrant} />
             }),
-            columnHelper.accessor('', {
+            columnHelper.display({
                 id: "Remove",
                 cell: props => <Remove {...props} id={props.row.original.id} removeEntrant={removeEntrant} />
             }),

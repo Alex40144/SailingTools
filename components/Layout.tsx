@@ -1,12 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
 
 export const siteTitle = 'Serial Port Tools'
 
 export default function Layout({
-    children,
-    home
+    children
 }: {
     children: React.ReactNode
     home?: boolean
