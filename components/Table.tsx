@@ -50,7 +50,7 @@ const Number = ({ ...props }: any) => {
             <input type="number"
                 id=''
                 className="p-2 m-2 text-center w-full"
-                defaultValue={value}
+                defaultValue={Math.round(value)}
                 key={value}
                 onBlur={(e) => onBlur(e)}
             />
@@ -155,16 +155,16 @@ const RaceResultsTable = (props: any) => {
                 cell: props => <Text {...props} updateEntrant={updateEntrant} />
             }),
             columnHelper.accessor('Crew', {
-                id: "Crew",
+                header: "Crew",
                 cell: props => <Text {...props} updateEntrant={updateEntrant} />
             }),
             columnHelper.accessor('Class', {
-                id: "Class",
+                header: "Class",
                 size: 300,
                 cell: props => <Class {...props} updateEntrant={updateEntrant} />
             }),
             columnHelper.accessor('BoatNumber', {
-                id: "Sail Number",
+                header: "Sail Number",
                 cell: props => <Number {...props} updateEntrant={updateEntrant} />
             }),
             columnHelper.accessor('Time', {
@@ -173,6 +173,10 @@ const RaceResultsTable = (props: any) => {
             }),
             columnHelper.accessor('Laps', {
                 header: "Laps",
+                cell: props => <Number {...props} updateEntrant={updateEntrant} />
+            }),
+            columnHelper.accessor('CorrectedTime', {
+                header: "Corrected Time",
                 cell: props => <Number {...props} updateEntrant={updateEntrant} />
             }),
             columnHelper.accessor('Position', {

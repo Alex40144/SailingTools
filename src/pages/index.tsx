@@ -3,21 +3,7 @@ import RaceResultsTable from 'components/Table';
 import { useState } from 'react';
 
 const Home = () => {
-	const [ResultsData, setResultsData] = useState<ResultsDataType[]>([{
-		id: 0,
-		Helm: "Alex",
-		Crew: "",
-		Class: {
-			Crew: 0,
-			Name: "",
-			PY: 1,
-		},
-		BoatNumber: "",
-		CorrectedTime: 0,
-		Time: "",
-		Laps: 0,
-		Position: 1
-	}])
+	const [ResultsData, setResultsData] = useState<ResultsDataType[]>([])
 
 	const [updateState, setUpdateState] = useState<number>(1)
 
