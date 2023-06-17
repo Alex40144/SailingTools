@@ -72,7 +72,7 @@ const Home = () => {
 			if (timeParts[0] != undefined && timeParts[1] != undefined && timeParts[2] != undefined) {
 				seconds = (+timeParts[0]) * 60 * 60 + (+timeParts[1]) * 60 + (+timeParts[2]);
 			}
-			entrant.CorrectedTime = (seconds * 1000 * (entrant.Laps / maxLaps)) / entrant.Class.PY
+			entrant.CorrectedTime = (seconds * 1000 * (maxLaps / entrant.Laps)) / entrant.Class.PY
 		});
 
 		//calculate finish position
